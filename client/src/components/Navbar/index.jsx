@@ -12,7 +12,7 @@ import {
 } from "./Navbar.modules";
 import { AiFillGithub } from "react-icons/ai";
 
-const navbarSize = 100;
+const navbarSize = 102;
 
 function Navbar() {
   const [click, setClick] = useState(false);

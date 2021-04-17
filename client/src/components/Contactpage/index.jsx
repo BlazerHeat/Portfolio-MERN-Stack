@@ -26,7 +26,7 @@ function Contactpage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (nameError === "" || messageError === "") return;
+    if (nameError || messageError || name === "" || message === "") return;
     setClicked(true);
     API.post("/feedback", { name: name, message: message });
   };

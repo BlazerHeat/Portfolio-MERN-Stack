@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://edu-dyno.herokuapp.com",
     credentials: true,
   })
 );
@@ -29,6 +29,7 @@ app.get("*", (req, res) => {
 });
 
 app.post("/feedback", (req, res) => {
+  console.log("got message");
   const { name, message } = req.body;
   if (!name || !message) {
     res.status(200).end();

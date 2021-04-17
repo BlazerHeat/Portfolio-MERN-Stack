@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://edu-dyno.herokuapp.com",
   withCredentials: true,
   responseType: "json",
 });

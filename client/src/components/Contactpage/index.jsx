@@ -37,7 +37,6 @@ function Contactpage() {
     setNameError(text.length >= 1 && text.length < 3);
   };
   const handleMessageChange = (e) => {
-    setMessage(e.target.value);
     const text = e.target.value;
     setMessage(text);
     setMessageError(text.length >= 1 && text.length < 3);

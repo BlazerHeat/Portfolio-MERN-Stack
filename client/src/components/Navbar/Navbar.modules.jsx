@@ -67,7 +67,7 @@ const NavList = styled.ul`
     position: absolute;
     justify-content: flex-start;
     padding-top: 150px;
-    top: -100vh;
+    top: -155vh;
     left: 0;
     right: 0;
 
@@ -80,7 +80,7 @@ const NavList = styled.ul`
       top: 0px;
     }
     &.hide {
-      top: -100vh;
+      top: -155vh;
     }
   }
 `;

@@ -61,6 +61,12 @@ const MainInfo = styled.div`
     padding: 0.5em;
 
     border: 5px solid #0078ff;
+
+    transition: filter 0.25s ease;
+
+    :hover {
+      filter: grayscale(0%);
+    }
   }
 
   @media (max-width: 900px) {

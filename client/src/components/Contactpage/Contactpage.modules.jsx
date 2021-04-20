@@ -10,7 +10,7 @@ const Background = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 
   display: flex;
   justify-content: center;

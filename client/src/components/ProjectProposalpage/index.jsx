@@ -6,7 +6,7 @@ import {
     ProposalFromWrapper,
 } from './ProjectProposalpage.modules';
 import { FaRegHandshake } from 'react-icons/fa';
-import { BsCheck } from 'react-icons/bs';
+import { FiThumbsUp } from 'react-icons/fi';
 
 function ProjectProposalpage() {
     const [clicked, setClicked] = useState(false);
@@ -57,7 +57,7 @@ function ProjectProposalpage() {
                         style={{ width: 'fit-content', alignSelf: 'center' }}
                     >
                         <p> {clicked ? 'Thank you' : 'Propose'}</p>
-                        {clicked ? <BsCheck /> : <FaRegHandshake />}
+                        {clicked ? <FiThumbsUp /> : <FaRegHandshake />}
                     </SubmitButton>
                 </ProposalForm>
             </ProposalFromWrapper>

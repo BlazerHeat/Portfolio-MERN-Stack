@@ -16,17 +16,16 @@ app.use(express.json());
 app.use(express.static("build"));
 app.use(express.urlencoded({ extended: false }));
 
-app.use(
-  cors({
-    origin: "https://edu-dyno.herokuapp.com",
-    credentials: true,
-  })
-);
 
-//main routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "build/index.html"));
-});
+if (process.env.NODE_ENV === 'development') {
+  app.use(
+    cors({
+      origin: ["https://edu-dyno.herokuapp.com", "http://localhost:3000"],
+      credentials: true,
+    })
+  );
+}
+
 
 app.post("/feedback", (req, res) => {
   console.log("got message");
@@ -40,6 +39,13 @@ app.post("/feedback", (req, res) => {
 
   res.status(202).end();
 });
+
+if (process.env.NODE_ENV !== 'development') {
+  //main routes
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+  });
+}
 
 //starting server
 app.listen(PORT, () => {

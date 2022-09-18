@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === 'development') {
   app.use(
     cors({
-      origin: ["https://edu-dyno.herokuapp.com", "http://localhost:3000"],
+      origin: ["https://vatsalghoghari2.herokuapp.com", "http://localhost:3000"],
       credentials: true,
     })
   );
@@ -45,7 +45,7 @@ if (process.env.NODE_ENV !== 'development') {
 
   //main routes
   app.get("*", (req, res) => {
-    res.sendFile("index.html");
+    res.status(202).sendFile(path.resolve("./client/build", "index.html"));
   });
 }
 

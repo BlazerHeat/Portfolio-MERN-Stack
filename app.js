@@ -8,6 +8,7 @@ const app = express();
 const path = require("path");
 const cors = require("cors");
 const Message = require("./database/models/message");
+const Proposal = require("./database/models/proposal");
 
 const PORT = process.env.PORT || 5050;
 
@@ -36,6 +37,14 @@ app.post("/feedback", (req, res) => {
   }
 
   new Message({ name: name, message: message }).save();
+
+  res.status(202).end();
+});
+
+app.post('/propose', (req, res) => {
+  const { companyName, budget, projectName, projectDesc, companyEmail, contactNo } = req.body;
+
+  new Proposal({ companyName, budget: Number(budget), projectName, projectDesc, companyEmail, contactNo }).save();
 
   res.status(202).end();
 });

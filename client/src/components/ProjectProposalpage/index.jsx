@@ -12,7 +12,7 @@ import API from '../../api';
 function ProjectProposalpage() {
     const [formData, setFormData] = useState({
         companyName: '',
-        budget: 0,
+        budget: 1,
         projectName: '',
         projectDesc: '',
         companyEmail: '',
@@ -25,7 +25,14 @@ function ProjectProposalpage() {
         setFormData({ ...formData, companyName: value });
     };
     const handleBudgetChange = (e) => {
-        const value = e.target.value;
+        let value = e.target.value;
+
+        if (value === '' || value === null) {
+            value = '';
+        } else if (value <= 0) {
+            value = Math.abs(value);
+        }
+        value = parseInt(value);
         setFormData({ ...formData, budget: value });
     };
     const handleProjectNameChange = (e) => {
@@ -68,7 +75,7 @@ function ProjectProposalpage() {
                         />
                     </label>
                     <label>
-                        Budget:
+                        Budget: ₹
                         <input
                             type={'number'}
                             name="budget"
